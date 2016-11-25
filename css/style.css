@@ -1,10 +1,115 @@
 @charset "utf-8";
 body{margin: 0;}
+
+.bg,
+.control{
+	position: absolute;
+	-webkit-background-size: contain;
+	background-size: contain;
+	z-index: 10;
+}
+.bg{
+	top:0;
+	right:0;
+	background-image: url(../images/music.gif);
+	width: 80px;
+	height: 80px;
+}
+.control{
+	top: 36px;
+	right: 36px;
+	width: 44px;
+	height: 44px;
+	background-image: url(../images/music_off.png);
+}
+.play{
+	-webkit-animation: myplay 1s linear infinite;
+	-o-animation: myplay 1s linear infinite;
+	animation: myplay 1s linear infinite;
+}
+.off .bg{background-image: url('');}
+@keyframes myplay{
+	0%{
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100%{
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+@-webkit-keyframes myplay{
+	0%{
+		-webkit-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+	100%{
+		-webkit-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+		-o-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+
+
+
 .swiper-container {
 	position: absolute;
   width: 100%;
   height: 100%;
 } 
+
+.arrow{
+	position: absolute;
+	bottom:5%;
+	width: 100%;
+	height: 50px;
+	background-image: url(../images/icon_up.png);
+	-webkit-background-size: contain;
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+
+	z-index: 10;
+
+	-webkit-animation: mymove 1s linear infinite;
+	-o-animation: mymove 1s linear infinite;
+	animation: mymove 1s linear infinite;
+
+}
+
+@keyframes mymove{
+	0%{
+		-webkit-transform: translateY(100%);
+		-ms-transform: translateY(100%);
+		-o-transform: translateY(100%);
+		transform: translateY(100%);
+		opacity: 0;
+	}
+	50%{
+		-webkit-transform: translateY(50%);
+		-ms-transform: translateY(50%);
+		-o-transform: translateY(50%);
+		transform: translateY(50%);
+		opacity: 1;
+	}
+	100%{
+		-webkit-transform: translateY(0);
+		-ms-transform: translateY(0);
+		-o-transform: translateY(0);
+		transform: translateY(0);
+		opacity: 0;
+	}
+}
+
+
 
 .swiper-slide{
 	background-position: center;

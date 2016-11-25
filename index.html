@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>找的就是你</title>
 	<link rel="stylesheet" href="css/swiper.min.css">
 	<link rel="stylesheet" href="css/animate.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<div class="music">
+	<div class="bg"></div>
+	<div class="control play"></div>
+</div>
+
 <div class="swiper-container">
+	<div class="arrow" id="arrow"></div>
 	<div class="swiper-wrapper">
 		<div class="swiper-slide s1">
 			<div class="ani a01" swiper-animate-effect="bounceInDown" swiper-animate-duration="0.5s" swiper-animate-delay="0.5s"></div>
@@ -62,10 +70,17 @@
 		</div>
 	</div>
 </div>
-
+	<script src="js/jquery-1.10.1.min.js"></script>
 	<script src="js/swiper.min.js"></script>
 	<script src="js/swiper.animate1.0.2.min.js"></script>
-	<script>        
+	<script>    
+		$('.control').click(function () {
+			$('.control').toggleClass('play');
+			$('.music').toggleClass('off');
+		})
+
+
+
 	  var mySwiper = new Swiper ('.swiper-container', {
 	    direction: 'vertical',
 		  onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
@@ -74,6 +89,12 @@
 	 		}, 
 		  onSlideChangeEnd: function(swiper){ 
 		    swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+
+		    if(mySwiper.isEnd){
+		    	$('#arrow').hide();
+		    }else{
+		    	$('#arrow').show();
+		    }
 		  } 
 	  })        
   </script>
